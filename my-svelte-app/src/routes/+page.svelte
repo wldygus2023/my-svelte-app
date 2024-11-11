@@ -2,6 +2,7 @@
 	import Counter from '$components/Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import '../css/import.css'; //inmport.css 파일을 가져와 적용합니다.
 </script>
 
 <svelte:head>

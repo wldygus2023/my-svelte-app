@@ -1,0 +1,89 @@
+/* 레이아웃 관련 스타일 정의 */
+/* .container는 중앙 정렬된 레이아웃을 관리합니다. */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* section 스타일 정의
+ - 주요 콘텐츠를 가운데 정렬합니다. */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.6;
+}
+
+/* h1 스타일 정의
+ - 섹션의 제목 요소 너비를 100%로 설정합니다. */
+h1 {
+  width: 100%;
+}
+
+/* .welcome 스타일 정의
+ - 이미지 요소를 포함하고, 상대적 위치를 설정하여 반응형 레이아웃에 맞춥니다. */
+.welcome {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding: 0 0 calc(100% * 495 / 2048) 0; /* 이미지 비율을 유지하기 위해 패딩을 설정합니다. */
+}
+
+/* .welcome img 스타일 정의
+ - 이미지의 위치를 절대 위치로 설정하여 부모 요소를 기준으로 크기를 조정합니다. */
+.welcome img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: block;
+}
+
+/* 전체 애플리케이션 컨테이너 스타일 정의 */
+/* .app은 애플리케이션 전체의 레이아웃을 관리합니다. */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 화면 전체 높이를 채우도록 설정합니다. */
+}
+
+/* main 섹션의 스타일 정의
+ - 메인 콘텐츠를 중앙에 배치하고, 최대 너비와 패딩을 설정하여 가독성을 높입니다. */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  max-width: 64rem; /* 메인 콘텐츠의 최대 너비를 64rem로 제한합니다. */
+  margin: 0 auto; /* 중앙 정렬을 위해 좌우 여백을 자동으로 설정합니다. */
+  box-sizing: border-box; /* 요소 크기에 패딩과 보더를 포함시킵니다. */
+}
+
+/* footer 스타일 정의
+ - 푸터 영역을 중앙에 정렬하여 사용자가 쉽게 접근할 수 있도록 합니다. */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+/* footer 링크 스타일 정의
+ - 링크 텍스트를 굵게 표시하여 강조합니다. */
+footer a {
+  font-weight: bold;
+}
+
+/* 미디어 쿼리
+ - 화면의 너비가 480px 이상일 때 푸터의 패딩을 조정합니다. */
+@media (min-width: 480px) {
+  footer {
+      padding: 12px 0;
+  }
+}
