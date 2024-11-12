@@ -1,0 +1,27 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때만 트리거
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Run deployment script on EC2
+        env:
+          HOST: "ec2-user@43.201.9.252"  # EC2 퍼블릭 IP 주소
+          KEY: "path/to/SvelteApp.pem"  # SvelteApp.pem 키의 경로 지정
+        run: |
+          chmod 400 $KEY
+          ssh -o StrictHostKeyChecking=no -i $KEY $HOST 'bash -s' < ./pull.sh
